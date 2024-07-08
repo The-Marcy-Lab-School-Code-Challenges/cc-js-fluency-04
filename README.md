@@ -24,7 +24,7 @@ const alumni = [
 ]
 ```
 
-1. Write a function named `updateLanguage` that takes an array of objects and updates the language value to ES6 if the language is JavaScript, return the entire object.
+1. Write a function named `updateLanguage` that takes an array of objects and updates the language property of each object to `ES6` if the language is JavaScript.
     
     ```jsx
     updateLanguage(alumni) // returns [
@@ -36,7 +36,7 @@ const alumni = [
     ]
     ```
     
-2. Write a function named `oddJob` that takes an array of objects and returns an array of objects if the job length is an odd number.
+2. Write a function named `oddJob` that takes an array of objects and returns an array of objects if the job property length is an odd number.
     
     ```jsx
     oddJob(alumni) //returns [
@@ -51,7 +51,7 @@ const alumni = [
     ]
     ```
     
-3. Write a function named `orderedAlumni` that takes an array of objects and sorts the objects by the age of the alumni from oldest to youngest.
+3. Write a function named `orderedAlumni` that takes an array of objects and sorts the objects by the age property, in order of oldest to youngest.
     
     ```jsx
     orderedAlumni(alumni) // returns [

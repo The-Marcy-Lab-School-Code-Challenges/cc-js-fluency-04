@@ -12,144 +12,93 @@
 
 **Solve the following problems using higher order array methods**
 
-For today's questions, we will perform all of our operations on the following array, `users`.
+**Test all your solutions for the questions 1-4 with the following variable:**
 
 ```
-const users = [
-  { name: 'Reuben',
-    username: '@blood_pressure_killa',
-    followers: 1,
-    verified: false,
-    bio: "It's an honor and a privilege."
-  },
-  { name: 'Laisha',
-    username: '@passaic_papi',
-    followers: 700,
-    verified: true,
-    bio: "My commute is longer than yours."
-  },
-  { name: 'Anne',
-    username: '@i_love_bambas',
-    followers: 12,
-    verified: false,
-    bio: "@mayabee is my best friend"
-  },
-  { name: 'Steph',
-    username: '@queen_of_the_kew',
-    followers: 1200,
-    verified: false,
-    bio: "✌🏼"
-  },
-  { name: 'Carmen',
-    username: '@omar_apollo_fanclub',
-    followers: 1200000,
-    verified: true,
-    bio: "My favorite restaurants are outback steakhouse and buffalo wildwings. My favorite stores are Zara, H&M, and Forever 21."
-  }
+const alumni = [
+{name:'Stephanie', job:'JPMorgan',language:'JavaScript', age:24},
+{name:'Devonte', job:'SquareSpace',language:'JavaScript', age:26},
+{name:'Enmanuel', job:'Asana',language:'JavaScript', age:23},
+{name:'Cielo', job:'NYT',language:'JavaScript', age:23},
+{name:'Carmen', job:'Marcy Lab School',language:'JavaScript', age:24}
 ]
-
 ```
 
-1. Write a function names `logAllNames` that logs all the names of each user to the console.
+1. Write a function named `updateLanguage` that takes an array of objects and updates the language value to ES6 if the language is JavaScript, return the entire object.
     
     ```jsx
-    logAllNames(users) 
-    /* Will log each name to the console
-    Reuben
-    Laisha
-    Anne
-    Steph
-    Carmen
-    */ 
+    updateLanguage(alumni) // returns [
+      { name: 'Stephanie', job: 'JPMorgan', language: 'ES6', age: 24 },
+      { name: 'Devonte', job: 'SquareSpace', language: 'ES6', age: 26 },
+      { name: 'Enmanuel', job: 'Asana', language: 'ES6', age: 23 },
+      { name: 'Cielo', job: 'NYT', language: 'ES6', age: 23 },
+      { name: 'Carmen', job: 'Marcy Lab School', language: 'ES6', age: 24 }
+    ]
     ```
     
-2. Write a function, `getAllTags`, that will log strings that contain the `name` and `username` property for each user to the console.
+2. Write a function named `oddJob` that takes an array of objects and returns an array of objects if the job length is an odd number.
     
     ```jsx
-    getAllTags(users)
-    /* These strings will be printed to the console
-      'Hi my name is Reuben, and my tag is @blood_pressure_killa!',
-      'Hi my name is Laisha, and my tag is @passaic_papi!',
-      'Hi my name is Anne, and my tag is @i_love_bambas!',
-      'Hi my name is Steph, and my tag is @queen_of_the_kew!',
-      'Hi my name is Carmen, and my tag is @omar_apollo_fanclub!'
-    */
+    oddJob(alumni) //returns [
+      {
+        name: 'Devonte',
+        job: 'SquareSpace',
+        language: 'JavaScript',
+        age: 26
+      },
+      { name: 'Enmanuel', job: 'Asana', language: 'JavaScript', age: 23 },
+      { name: 'Cielo', job: 'NYT', language: 'JavaScript', age: 23 }
+    ]
     ```
     
-3. Write a function, `sumAllFollowers` that returns a sum of the number of followers each user has. 
+3. Write a function named `orderedAlumni` that takes an array of objects and sorts the objects by the age of the alumni from oldest to youngest.
     
     ```jsx
-    sumAllFollowers(users) //returns 1201913
+    orderedAlumni(alumni) // returns [
+      {
+        name: 'Devonte',
+        job: 'SquareSpace',
+        language: 'JavaScript',
+        age: 26
+      },
+      {
+        name: 'Stephanie',
+        job: 'JPMorgan',
+        language: 'JavaScript',
+        age: 24
+      },
+      {
+        name: 'Carmen',
+        job: 'Marcy Lab School',
+        language: 'JavaScript',
+        age: 24
+      },
+      { name: 'Enmanuel', job: 'Asana', language: 'JavaScript', age: 23 },
+      { name: 'Cielo', job: 'NYT', language: 'JavaScript', age: 23 }
+    ]
     ```
     
-4. Write a function, `searchUsername`, that takes a string along with the array of objects and returns the user object whose `username` matches the string parameter.
+4. Write a function named `averageAge` that takes an array of objects and returns the average of all the ages from each age property in each object rounded to the nearest whole number.
     
     ```jsx
-    searchUsername(users, "@passaic_papi")
+    averageAge(alumni) // 24
+    ```
     
-    // returns this array:
-    [
-      { name: 'Laisha C',
-        username: '@passaic_papi',
-        followers: 700,
-        verified: true,
-        bio: "My commute is longer than yours."
+5. Write a function named `ninetiesBabies` that takes an array of objects and returns an array of only the objects where the age property is larger than 21.
+    
+    ```jsx
+    ninetiesBabies(alumni) // returns [
+      {
+        name: 'Devonte',
+        job: 'SquareSpace',
+        language: 'JavaScript',
+        age: 26
       }
     ]
     ```
     
-5. Who is most long-winded? Return the object with the longest bio.
+6. Write a function named `allUseJavaScript` that takes an array of objects and returns a boolean if for every object, the language property is 'JavaScript'.
     
     ```jsx
-    longWinded(users)
-    
-    // returns this array:
-    [
-      { name: 'Carmen S',
-        username: '@omar_apollo_fanclub',
-        followers: 1200000,
-        verified: true,
-        bio: "My favorite restaurants are outback steakhouse and buffalo wildwings. My favorite stores are Zara, H&M, and Forever 21."
-      }
-    ]
-    ```
-    
-6. Return an array sorted by `follower` count, least to greatest.
-    
-    ```jsx
-    follower(users)
-    // returns the follwoing array:
-    [
-      { name: 'Reuben O.',
-        username: '@blood_pressure_killa',
-        followers: 1,
-        verified: false,
-        bio: "It's an honor and a privilege."
-      },
-      { name: 'Anne H.',
-        username: '@i_love_bambas',
-        followers: 12,
-        verified: false,
-        bio: "@mayabee is my best friend"
-      },
-      { name: 'Laisha C',
-        username: '@passaic_papi',
-        followers: 700,
-        verified: true,
-        bio: "My commute is longer than yours."
-      },
-      { name: 'Steph S.',
-        username: '@queen_of_the_kew',
-        followers: 1200,
-        verified: false,
-        bio: "✌🏼"
-      },
-      { name: 'Carmen S',
-        username: '@omar_apollo_fanclub',
-        followers: 1200000,
-        verified: true,
-        bio: "My favorite restaurants are outback steakhouse and buffalo wildwings. My favorite stores are Zara, H&M, and Forever 21."
-      }
-    ]
-    
+    allUseJavaScript(alumni) // returns true
     ```
